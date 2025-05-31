@@ -1,0 +1,235 @@
+.container {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  align-items: center;
+  width: 100vw;
+  height: 6rem;
+  margin: 0 1rem 0 0;
+  background: transparent;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(70, 70, 70, 0.55);
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: -1;
+}
+
+.scrolled {
+  background-color: transparent; /* Adicione um fundo semi-transparente */
+}
+
+.scrolled::before {
+  opacity: 1;
+}
+
+.logoContainer {
+  display: flex;
+}
+
+.logo {
+  width: auto;
+  height: clamp(4rem, 8vw, 5rem);
+  object-fit: contain;
+  cursor: pointer;
+  filter: invert();
+}
+
+.logo.scrolled {
+  filter: none;
+}
+
+.bagulhos {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 6rem;
+  gap: 1rem;
+  list-style: none;
+  justify-content: center;
+
+  &.open {
+    display: none;
+  }
+}
+
+.botaoRequest {
+  position: relative;
+  background: linear-gradient(145deg, #4294ff 0%, #8c00ff 90%);
+  color: white;
+  border-radius: 1.2rem;
+  width: clamp(8rem, 15vw, 13rem);
+  height: clamp(2.5rem, 4vw, 3.5rem);
+  display: flex;
+  margin: 0 0 0 -1rem;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(0.2rem, 1vw, 11pt);
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.3s ease-in-out;
+}
+
+.botaoRequest::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, #4294ff 0%, #8c00ff 90%);
+  filter: brightness(1.1);
+  border-radius: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 0;
+}
+
+.botaoRequest:hover::before {
+  opacity: 1;
+}
+
+.botaoRequest p {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  font-size: clamp(0.6rem, 1vw, 1rem);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.botaoRequest p::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.botaoRequest:hover p::after {
+  width: 100%;
+  left: 0;
+}
+
+.btnMobile {
+  display: none;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+  .bagulhos {
+    margin: 0 0 0 3rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .logoContainer {
+    display: block;
+  }
+
+  .botaoRequest {
+    width: 10rem;
+    height: 3rem;
+    font-size: 0.9rem;
+  }
+
+  .btnMobile {
+    display: block;
+    background-color: transparent;
+    font-size: 24px;
+    margin: 0 1rem 0 0;
+    color: #1f1f1f;
+    border: none;
+    cursor: pointer;
+  }
+
+  .scrolled {
+    color: white;
+  }
+
+  .bagulhos {
+    display: none;
+
+    &.open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 6rem;
+      left: 50%;
+      transform: translateX(-50%); /* Centraliza horizontalmente */
+      width: 100%;
+      border-top: 1px solid rgba(0, 0, 0, 0.062);
+      min-width: 490px;
+      max-width: 768px; /* Evita que fique muito largo */
+      background: rgb(255, 255, 255, 0.8);
+      padding: 20px;
+      align-items: center; /* Alinha os itens ao centro */
+      text-align: center;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      box-shadow: 0px 20px 15px 5px rgba(0, 0, 0, 0.46);
+      backdrop-filter: blur(15px); /* Aplica o desfoque */
+      -webkit-backdrop-filter: blur(15px);
+    }
+  }
+
+  .btnDefault {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) and (prefers-color-scheme: dark) {
+  .btnMobile {
+    display: block;
+    background-color: transparent;
+    font-size: 1.5rem;
+    margin: 0 1rem 0 0;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  .bagulhos {
+    display: none;
+
+    &.open {
+      display: flex;
+      background-color: #111;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .botaoRequest {
+    width: 8rem;
+    height: 2.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .logo {
+    filter: none;
+  }
+
+  .container::before {
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(10px);
+  }
+}

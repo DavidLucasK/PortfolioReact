@@ -1,0 +1,164 @@
+.complianceSection {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2rem 4rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.titleContainer {
+  margin-bottom: 3rem;
+}
+
+.title {
+  position: relative;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #111;
+}
+
+.test {
+  filter: invert();
+}
+
+.title::after {
+  content: "";
+  position: absolute;
+  bottom: -0.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 4px;
+  border-radius: 50px;
+  background: linear-gradient(145deg, #4294ff 0%, #a435ff 100%);
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #777;
+  margin-top: 0.5rem;
+}
+
+.cardsContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.card {
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.322);
+  border-radius: 1rem;
+  width: 220px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.front,
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.4s ease, transform 0.5s ease-in-out;
+}
+
+.front {
+  background: #fff;
+  z-index: 1;
+}
+
+.back {
+  background: linear-gradient(145deg, #4294ff 0%, #a435ff 100%);
+  color: #fff;
+  opacity: 0;
+  transform: translateY(100%);
+  z-index: 2;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.4rem;
+  border-radius: 0.8rem;
+}
+
+.card:hover .front {
+  opacity: 0;
+}
+
+.card:hover .back {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.icon {
+  margin-bottom: 1rem;
+  background: linear-gradient(145deg, #4294ff 0%, #a435ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.text {
+  font-size: 1rem;
+  color: #111;
+}
+
+.text strong {
+  font-weight: 700;
+  color: #000;
+}
+
+@keyframes expandUnderline {
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .title {
+    color: #fff;
+  }
+
+  .subtitle {
+    color: #ddd;
+  }
+
+  .text strong {
+    color: rgb(0, 0, 0);
+  }
+
+  .icon {
+    color: #222;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .complianceSection {
+    background-color: #ddd;
+    background-image: none;
+    background-repeat: none;
+    background-position: none;
+    background-size: none;
+  }
+}
+
+@media screen and (max-width: 480px) and (prefers-color-scheme: dark) {
+  .complianceSection {
+    background-color: #111;
+    background-image: none;
+    background-repeat: none;
+    background-position: none;
+    background-size: none;
+  }
+}

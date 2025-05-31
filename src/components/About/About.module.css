@@ -1,0 +1,191 @@
+.aboutSection {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  z-index: 2;
+  background-color: #fff;
+  box-shadow: 0 0 15px 15px #00000034;
+  color: #000;
+  padding: 6rem 5% 1rem;
+  display: flex;
+  justify-content: center;
+
+  background-image: url("../../../public/assets/test2.png");
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: 100vw;
+}
+
+.contentWrapper {
+  max-width: 60vw;
+}
+
+.desktopLayout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5rem;
+}
+
+.leftContent {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.imageWrapper {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rightContent {
+  margin: 0 auto;
+  justify-content: center;
+  justify-self: center;
+}
+
+.profilePhotoContainer {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(145deg, #4294ff 0%, #a435ff 100%);
+  padding: 4px;
+  box-shadow: 0 0 20px rgba(163, 53, 255, 0.2);
+}
+
+.profilePhoto {
+  border-radius: 50%;
+  object-fit: cover;
+  transition: opacity 0.4s ease;
+}
+
+.photoPrimary {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 1;
+  transform: translateY(10px);
+  transition: opacity 0.7s ease-in-out;
+}
+
+.photoHover {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.profilePhotoContainer:hover .photoPrimary {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transform: translateY(10px);
+}
+
+.profilePhotoContainer:hover .photoHover {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transform: translateY(0px);
+}
+
+.title {
+  text-align: center;
+  position: relative;
+  font-size: clamp(2rem, 4vw, 2.3rem);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #000;
+  margin-bottom: 5rem;
+}
+
+.title::after {
+  content: "";
+  position: absolute;
+  bottom: -0.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5%;
+  height: 4px;
+  border-radius: 50px;
+  background: linear-gradient(145deg, #4294ff 0%, #a435ff 100%);
+}
+
+.subtitle {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  margin-top: 2rem;
+  color: #000;
+  text-align: center;
+  position: relative;
+}
+
+.subtitle::after {
+  content: "";
+  position: absolute;
+  bottom: -0.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  border-radius: 50px;
+  background: linear-gradient(145deg, #4294ff 0%, #a435ff 100%);
+  opacity: 0;
+  animation: expandUnderline 0.7s forwards 1s ease-in-out;
+}
+
+.paragraph {
+  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+  line-height: 1.6;
+  color: #111;
+  margin: 0 0 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .aboutSection {
+    padding: 4rem 1.5rem;
+  }
+
+  .textBlock {
+    gap: 1.25rem;
+  }
+
+  .title,
+  .subtitle {
+    text-align: center;
+  }
+
+  .paragraph {
+    text-align: justify;
+  }
+}
+
+@keyframes expandUnderline {
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .aboutSection {
+    background-color: #111;
+  }
+
+  .title {
+    color: #fff;
+  }
+
+  .subtitle {
+    color: #fff;
+  }
+
+  .paragraph {
+    color: #fff;
+  }
+}

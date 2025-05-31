@@ -1,13 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
+@font-face {
+  font-family: "Seasons";
+  src: url("/fonts/FONTSPRINGDEMO-TheSeasonsBold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Seasons";
+  src: url("/fonts/FONTSPRINGDEMO-TheSeasonsBoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Seasons";
+  src: url("/fonts/FONTSPRINGDEMO-TheSeasonsRegular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Seasons";
+  src: url("/fonts/FONTSPRINGDEMO-TheSeasonsItalic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Seasons";
+  src: url("/fonts/FONTSPRINGDEMO-TheSeasonsLightRegular.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Seasons";
+  src: url("/fonts/FONTSPRINGDEMO-TheSeasonsLightItalic.woff2") format("woff2");
+  font-weight: 300;
+  font-style: italic;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #1f1f1f;
     --foreground: #ededed;
   }
+}
+
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Garante que a página tenha pelo menos a altura total da tela */
 }
 
 html,
@@ -16,10 +65,14 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -35,8 +88,74 @@ a {
   text-decoration: none;
 }
 
+/*Adições para o Swiper*/
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #fff !important;
+  font-size: 3rem;
+  transition: transform 0.2s ease, opacity 0.3s;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  margin: 2rem 0 0 0;
+  font-size: 4rem !important;
+  font-weight: bold;
+  color: #00000094 !important; /* em alguns temas é necessário */
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  transform: scale(1.15);
+  opacity: 0.8;
+}
+
+.swiper-pagination {
+  margin-top: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.swiper-pagination-bullet {
+  background: #b20000 !important;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    color: #fff !important;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    margin: 0 !important;
+    font-size: 2rem !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    top: var(--swiper-navigation-top-offset, 60%) !important;
+    margin: 0 !important;
+    font-size: 2rem !important;
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    margin: 0 !important;
+    font-size: 2rem !important;
+  }
+
+  .swiper-button-prev:hover,
+  .swiper-button-next:hover {
+    transform: none;
   }
 }

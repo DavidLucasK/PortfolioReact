@@ -1,0 +1,132 @@
+.servicesSection {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  z-index: 3;
+  background-color: #111;
+  color: white;
+  padding: 6rem 10% 4rem;
+  box-shadow: 0 0 15px 15px #11111142;
+  display: flex;
+  justify-content: center;
+}
+
+.spacer {
+  height: 1500px;
+  background: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 3rem;
+  text-align: center;
+  position: relative;
+}
+
+.title::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  opacity: 0;
+  height: 4px;
+  border-radius: 50px;
+  background: linear-gradient(145deg, #4294ff 0%, #a435ff 100%);
+  animation: expandUnderline 1s forwards;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(clamp(240px, 45vw, 300px), 1fr)
+  );
+  gap: 2rem;
+  width: 100%;
+}
+
+.card {
+  background-color: #1a1a1a;
+  border-radius: 1rem;
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid #555;
+  opacity: 0;
+  transform: scale(0.8) translateY(50px);
+  will-change: opacity, transform;
+  transition: border 0.3s ease;
+}
+
+.cardMobile {
+  background-color: #1a1a1a;
+  border-radius: 1rem;
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid #555;
+  opacity: 1;
+  transform: none;
+  transition: border 0.3s ease;
+}
+
+.card:hover {
+  border: 1px solid #a435ff;
+}
+
+.iconWrapper {
+  background: linear-gradient(145deg, #4294ff 0%, #a435ff 100%);
+  border-radius: 50%;
+  padding: clamp(1rem, 4vw, 1.5rem);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.cardTitle {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.cardDescription {
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  color: #ccc;
+  line-height: 1.5;
+}
+
+@keyframes expandUnderline {
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .spacer {
+    background-color: #111;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .spacer {
+    display: none;
+    height: 0;
+  }
+
+  .servicesSection {
+    padding: 4rem 10% 4rem;
+  }
+}
