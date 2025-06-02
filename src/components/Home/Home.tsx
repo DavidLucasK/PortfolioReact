@@ -72,10 +72,10 @@ export default function Home() {
             <p>Download Currículo</p>
           </a>
         </div>
+        <a href="#about" className={styles.scrollDown}>
+          <FaArrowDown />
+        </a>
       </div>
-      <a href="#about" className={styles.scrollDown}>
-        <FaArrowDown />
-      </a>
     </div>
   );
 
