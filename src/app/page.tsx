@@ -10,6 +10,7 @@ import Projects from "@/components/Projects/Projects";
 import Contact from "@/components/Contact/Contact";
 import Compliance from "@/components/Compliance/Compliance";
 import Techs from "@/components/Techs/Techs";
+import Logos from "@/components/Logos/Logos";
 
 export default function Index() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -26,6 +27,7 @@ export default function Index() {
       <HomeContent />
       <About />
       <Services />
+      <Logos />
       <Projects />
       <Techs />
       <Compliance />

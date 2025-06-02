@@ -1,0 +1,63 @@
+.logoSection {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0 3rem;
+  background: linear-gradient(145deg, #4294ff 0%, #a435ff 100%);
+  text-align: center;
+  overflow: hidden;
+}
+
+.logoTitle {
+  font-size: clamp(1rem, 50vw, 2rem);
+  margin-bottom: 2rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.logoSwiper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100%; /* remove o max-width fixo */
+  flex: 0 0 auto; /* evita esticamento inesperado */
+}
+
+.logoImage {
+  max-height: 90px;
+  max-width: 400px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.8;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.logoImage:hover {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .slide {
+    width: 160px !important;
+    margin-right: 30px !important;
+  }
+
+  .logoImage {
+    width: 100%;
+  }
+
+  .logoTitle {
+    font-size: 1.5rem;
+  }
+}
