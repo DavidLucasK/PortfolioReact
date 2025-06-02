@@ -61,6 +61,11 @@ export default function Home() {
         const projectsTop = target.getBoundingClientRect().top + currentScroll;
         offset = currentScroll < projectsTop ? -50 : -80;
       }
+
+      if (hash === "#about") {
+        const aboutTop = target.getBoundingClientRect().top + currentScroll;
+        offset = currentScroll < aboutTop ? -80 : -80;
+      }
     } else {
       if (hash === "#projects") {
         const projectsTop = target.getBoundingClientRect().top + currentScroll;
@@ -104,7 +109,10 @@ export default function Home() {
             <p>Download Currículo</p>
           </a>
         </div>
-        <a href="#about" className={styles.scrollDown}>
+        <a
+          onClick={() => scrollToSection("#about")}
+          className={styles.scrollDown}
+        >
           <FaArrowDown />
         </a>
       </div>
