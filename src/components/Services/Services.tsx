@@ -136,6 +136,7 @@ export default function Services() {
                   <Image
                     src={service.icon}
                     alt={service.title}
+                    unoptimized
                     width={50}
                     height={50}
                   />
