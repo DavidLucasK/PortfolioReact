@@ -127,6 +127,10 @@
     height: 0;
   }
 
+  .title::after {
+    width: 40% !important;
+  }
+
   .servicesSection {
     padding: 4rem 10% 4rem;
   }
