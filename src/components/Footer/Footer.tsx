@@ -36,7 +36,7 @@ export default function Footer() {
           alt="5"
         />
       </a>
-      <p>© David Lucas. Todos os direitos reservados.</p>
+      <p>© 2025 David Lucas. Todos os direitos reservados.</p>
     </div>
   );
 }

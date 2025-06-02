@@ -131,6 +131,21 @@
   margin-top: 2rem;
 }
 
+.iconContacts {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.iconContacts img {
+  border-radius: 50%;
+  transition: 0.3s transform ease-in-out, 0.3s filter ease-in-out;
+}
+
+.iconContacts img:hover {
+  filter: brightness(0.8);
+  transform: scale(1.05);
+}
+
 .loader {
   width: 18px;
   height: 18px;
@@ -151,6 +166,18 @@
   .infoWrapper {
     max-width: 100%;
   }
+
+  .content h3 {
+    text-align: center;
+  }
+
+  .iconContacts {
+    justify-content: center;
+  }
+
+  .cta {
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -161,6 +188,10 @@
   .contactSection {
     max-height: none;
     padding: 5rem 5% 2rem;
+  }
+
+  .iconContacts {
+    justify-content: center;
   }
 }
 

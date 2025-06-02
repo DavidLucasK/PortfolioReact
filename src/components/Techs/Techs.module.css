@@ -94,6 +94,12 @@
   color: #333;
 }
 
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .techGrid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  }
+}
+
 @media (max-width: 480px) {
   .techGrid {
     grid-template-columns: repeat(2, 1fr);

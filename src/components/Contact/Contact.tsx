@@ -2,6 +2,34 @@
 
 import { useState } from "react";
 import styles from "./Contact.module.css";
+import Image from "next/image";
+import whatsIcon from "../../../public/icons/whatsapp.png";
+import emailIcon from "../../../public/icons/email.png";
+import linkedinIcon from "../../../public/icons/linkedin.png";
+import githubIcon from "../../../public/icons/github.png";
+
+const contacts = [
+  {
+    alt: "Ícone Email",
+    href: "mailto:davidlucasfr70@gmail.com",
+    icon: emailIcon,
+  },
+  {
+    alt: "Ícone Whatsapp",
+    href: "https://wa.me/5519982414511?text=Ol%C3%A1%20David%2C%20gostei%20do%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar.",
+    icon: whatsIcon,
+  },
+  {
+    alt: "Ícone Linkedin",
+    href: "https://www.linkedin.com/in/david-lucas-a21208176/",
+    icon: linkedinIcon,
+  },
+  {
+    alt: "Ícone GitHub",
+    href: "https://github.com/DavidLucasK",
+    icon: githubIcon,
+  },
+];
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -107,24 +135,24 @@ export default function Contact() {
           </div>
 
           <div className={styles.infoWrapper}>
-            <h3>Outros Canais</h3>
-            <ul>
-              <li>
-                <strong>WhatsApp:</strong>{" "}
-                <a
-                  href="https://wa.me/5519982414511?text=Ol%C3%A1%20DL%20Design%20Digital%2C%20gostaria%20de%20conversar%20sobre%20um%20or%C3%A7amento."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  (19) 98241-4511
-                </a>
-              </li>
-              <li>
-                <strong>Email:</strong>{" "}
-                <a href="mailto:davidlucasfr70@gmail.com">
-                  davidlucasfr70@gmail.com
-                </a>
-              </li>
+            <h3>Minhas Redes</h3>
+            <ul className={styles.iconContacts}>
+              {contacts.map((contact, index) => (
+                <li key={index}>
+                  <a
+                    href={contact.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image
+                      src={contact.icon}
+                      width={46}
+                      height={46}
+                      alt={contact.alt}
+                    />
+                  </a>
+                </li>
+              ))}
             </ul>
             <p className={styles.cta}>
               Estou sempre aberto a novas oportunidades.

@@ -64,10 +64,12 @@ export default function Home() {
             <p>Veja meu trabalho</p>
           </a>
           <a
-            href="#contact"
+            href="assets/Curriculo.pdf"
+            download="Currículo"
+            aria-label="Baixar o Currículo de David Lucas"
             className={`${styles.botaoRequest} ${styles.contato}`}
           >
-            <p>Contato</p>
+            <p>Download Currículo</p>
           </a>
         </div>
       </div>
