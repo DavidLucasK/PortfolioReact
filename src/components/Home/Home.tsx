@@ -49,6 +49,35 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
+  const scrollToSection = (hash: string) => {
+    const target = document.querySelector(hash);
+    if (!target) return;
+
+    const currentScroll = window.scrollY || window.pageYOffset;
+    let offset = -100;
+
+    if (isMobile) {
+      if (hash === "#projects") {
+        const projectsTop = target.getBoundingClientRect().top + currentScroll;
+        offset = currentScroll < projectsTop ? -50 : -80;
+      }
+    } else {
+      if (hash === "#projects") {
+        const projectsTop = target.getBoundingClientRect().top + currentScroll;
+        offset = currentScroll < projectsTop ? -80 : -80;
+      }
+    }
+    const finalPosition =
+      target.getBoundingClientRect().top + currentScroll + offset;
+
+    setTimeout(() => {
+      window.scrollTo({
+        top: finalPosition,
+        behavior: "smooth",
+      });
+    }, 50); // pequena correção se necessário
+  };
+
   const content = (
     <div className={styles.homeContainer}>
       <div className={`${styles.leftContent} ${animate ? styles.fadeIn : ""}`}>
@@ -60,7 +89,10 @@ export default function Home() {
           funcionais e intuitivas.
         </p>
         <div className={styles.heroButtons}>
-          <a href="#projects" className={styles.botaoRequest}>
+          <a
+            onClick={() => scrollToSection("#projects")}
+            className={styles.botaoRequest}
+          >
             <p>Veja meu trabalho</p>
           </a>
           <a

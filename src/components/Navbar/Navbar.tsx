@@ -78,14 +78,14 @@ export default function Navbar({ onNavigate }: NavbarProps) {
     let offset = defaultOffsets[hash] ?? -100;
 
     if (isMobile) {
-      if (hash === "#services") {
-        const servicesTop = target.getBoundingClientRect().top + currentScroll;
-        offset = currentScroll < servicesTop ? -80 : -80;
-      }
-
       if (hash === "#about") {
         const aboutTop = target.getBoundingClientRect().top + currentScroll;
         offset = currentScroll < aboutTop ? -80 : -80;
+      }
+
+      if (hash === "#services") {
+        const servicesTop = target.getBoundingClientRect().top + currentScroll;
+        offset = currentScroll < servicesTop ? -80 : -80;
       }
     } else {
       if (hash === "#services") {
