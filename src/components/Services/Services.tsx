@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import web from "../../../public/assets/web.gif";
 import design from "../../../public/assets/design.gif";
 import backend from "../../../public/assets/backend.gif";
 import database from "../../../public/assets/database.gif";
