@@ -65,9 +65,9 @@ export default function Navbar({ onNavigate }: NavbarProps) {
   }, []);
 
   const defaultOffsets: Record<string, number> = {
-    "#projects": -90,
+    "#projects": -50,
     "#techs": 0,
-    "#contact": -80,
+    "#contact": -30,
   };
 
   const scrollToSection = (hash: string) => {
@@ -85,7 +85,7 @@ export default function Navbar({ onNavigate }: NavbarProps) {
 
       if (hash === "#services") {
         const servicesTop = target.getBoundingClientRect().top + currentScroll;
-        offset = currentScroll < servicesTop ? -80 : -80;
+        offset = currentScroll < servicesTop ? -50 : -50;
       }
     } else {
       if (hash === "#services") {

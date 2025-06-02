@@ -88,74 +88,8 @@ a {
   text-decoration: none;
 }
 
-/*Adições para o Swiper*/
-
-.swiper-button-prev,
-.swiper-button-next {
-  color: #fff !important;
-  font-size: 3rem;
-  transition: transform 0.2s ease, opacity 0.3s;
-}
-
-.swiper-button-prev::after,
-.swiper-button-next::after {
-  margin: 2rem 0 0 0;
-  font-size: 4rem !important;
-  font-weight: bold;
-  color: #00000094 !important; /* em alguns temas é necessário */
-}
-
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-  transform: scale(1.15);
-  opacity: 0.8;
-}
-
-.swiper-pagination {
-  margin-top: 2rem;
-  text-align: center;
-  position: relative;
-}
-
-.swiper-pagination-bullet {
-  background: #b20000 !important;
-}
-
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
-  }
-
-  .swiper-button-prev::after,
-  .swiper-button-next::after {
-    color: #fff !important;
-  }
-}
-
-@media screen and (min-width: 481px) and (max-width: 768px) {
-  .swiper-button-prev::after,
-  .swiper-button-next::after {
-    margin: 0 !important;
-    font-size: 2rem !important;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .swiper-button-prev,
-  .swiper-button-next {
-    top: var(--swiper-navigation-top-offset, 60%) !important;
-    margin: 0 !important;
-    font-size: 2rem !important;
-  }
-
-  .swiper-button-prev::after,
-  .swiper-button-next::after {
-    margin: 0 !important;
-    font-size: 2rem !important;
-  }
-
-  .swiper-button-prev:hover,
-  .swiper-button-next:hover {
-    transform: none;
   }
 }
