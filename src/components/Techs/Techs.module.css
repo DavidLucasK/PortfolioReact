@@ -1,0 +1,112 @@
+.techSection {
+  padding: 6rem 5% 4rem;
+  background: #fff;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.gradientText {
+  background: linear-gradient(145deg, #4294ff, #a435ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sectionSubtitle {
+  color: #444;
+  margin-bottom: 3rem;
+}
+
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.techCard {
+  background: linear-gradient(135deg, #f9f9f9, #ffffff);
+  border: 1px solid #e4e4e4;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 130px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px #00000012;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.techCard:hover {
+  transform: translateY(-6px) rotate(-1deg);
+  box-shadow: 0 5px 15px 5px #00000012;
+}
+
+.techCard img {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.8rem;
+}
+
+.techCard span {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.techCardSpecial {
+  background: linear-gradient(135deg, #f9f9f9, #ffffff);
+  border: 1px solid #e4e4e4;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 130px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px #00000012;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.techCardSpecial:hover {
+  transform: translateY(-6px) rotate(-1deg);
+  box-shadow: 0 5px 15px 5px #00000012;
+}
+
+.techCardSpecial img {
+  width: 32px;
+  height: 28px;
+}
+
+.techCardSpecial span {
+  margin-top: 18px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+@media (max-width: 480px) {
+  .techGrid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 1rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .techSection {
+    background: #111;
+  }
+
+  .sectionSubtitle {
+    color: #fff;
+  }
+}

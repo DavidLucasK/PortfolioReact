@@ -2,9 +2,9 @@
 
 import styles from "./Projects.module.css";
 import Image from "next/image";
-import mockupSalve from "@/app/assets/MockupSalve1.png";
-import mockupBarber from "@/app/Logo.webp";
-import mockupPastel from "@/app/Logo.webp";
+import mockupSalve from "../../../public/assets/MockupSalve1.png";
+import mockupTres from "../../../public/assets/MockupTresOuMais1.png";
+import mockupLoveYou from "../../../public/assets/MockupLoveYou.png";
 
 const projects = [
   {
@@ -15,18 +15,26 @@ const projects = [
     tag: "Instituto",
     link: "https://salveumacrianca.com.br",
   },
+  // {
+  //   title: "Escolhas de Filmes",
+  //   description: `Desenvolvido para recomendações de filmes aleatórios para assistir.<br><strong>(Feito para facilitar as noites com a namorada rs)</strong>`,
+  //   image: mockupBarber,
+  //   tag: "Utilitário",
+  // },
   {
-    title: "Valhalla Barber",
-    description: "Site para barbearia moderna com agendamento via WhatsApp.",
-    image: mockupBarber,
-    tag: "Serviços",
+    title: "LoveYou",
+    description: `App web que fiz para minha namorada poder brincar e ser algo divertido entre a gente.<br><strong>* Também fiz um app mobile em React Native que usa a mesma base de dados.</strong>`,
+    image: mockupLoveYou,
+    tag: "App Pessoal",
+    link: "https://loveuportfolio.vercel.app/",
   },
   {
-    title: "Pastel da Vó",
+    title: "TrêsOuMais",
     description:
-      "Página com cardápio digital, pedidos via Whatsapp e integração com Google Maps.",
-    image: mockupPastel,
-    tag: "Restaurante",
+      "Projeto com amigos para falar sobre a vida cristã com os jovens nas redes sociais!",
+    image: mockupTres,
+    tag: "Conteúdo Digital",
+    link: "https://tresoumais.vercel.app/",
   },
 ];
 
@@ -55,7 +63,7 @@ export default function Projects() {
                 />
               </a>
               <span className={styles.tag}>{project.tag}</span>
-              <p>{project.description}</p>
+              <p dangerouslySetInnerHTML={{ __html: project.description }} />
             </div>
           ))}
         </div>

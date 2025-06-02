@@ -1,10 +1,12 @@
 .contactSection {
   width: 100vw;
+  min-height: 80dvh;
   background-color: #fff;
   color: #111;
   padding: 4rem 5% 8rem;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .container {
@@ -114,8 +116,12 @@
 }
 
 .infoWrapper a {
-  color: #a435ff;
   text-decoration: none;
+  background: linear-gradient(145deg, #4294ff 0%, #a435ff 110%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 
 .cta {
@@ -153,7 +159,8 @@
   }
 
   .contactSection {
-    padding: 4rem 5% 2rem;
+    max-height: none;
+    padding: 5rem 5% 2rem;
   }
 }
 
@@ -167,6 +174,11 @@
   .form textarea {
     background-color: transparent;
     color: #fff;
+  }
+
+  .form input::placeholder,
+  .form textarea::placeholder {
+    color: #eee;
   }
 }
 

@@ -6,51 +6,52 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import web from "@/app/assets/web.gif";
-import landingPage from "@/app/assets/landingPage2.gif";
-import identity from "@/app/assets/identity.gif";
-import socialMedia from "@/app/assets/socialmedia.gif";
-import contentCreator from "@/app/assets/content.gif";
-import server from "@/app/assets/web.gif";
+import web from "../../../public/assets/web.gif";
+import design from "../../../public/assets/design.gif";
+import backend from "../../../public/assets/backend.gif";
+import database from "../../../public/assets/database.gif";
+import tests from "../../../public/assets/tests.gif";
+import api from "../../../public/assets/api.gif";
+import cloud from "../../../public/assets/cloud.gif";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
-    title: "Criação de Sites",
+    title: "Sistemas Web e\n Design",
     description:
-      "Sites institucionais modernos, responsivos e otimizados para performance.",
-    icon: web,
+      "Desenvolvimento de sites modernos com interfaces visualmente atrativas e boas práticas de UX/UI",
+    icon: design,
   },
   {
-    title: "Landing Pages",
+    title: "Backend\n e Git",
     description:
-      "Páginas de conversão eficazes, com foco em captar leads e gerar vendas.",
-    icon: landingPage,
+      "Desenvolvimento backend com C#, Node.js ou Java, utilizando boas práticas de versionamento com Git",
+    icon: backend,
   },
   {
-    title: "Identidade Visual",
+    title: "Modelagem de \nBanco de Dados",
     description:
-      "Criação de logotipos, cores e estilos que representam a essência da sua marca.",
-    icon: identity,
+      "Criação de estruturas com PostgreSQL, modelagem relacional e integrações com backends",
+    icon: database,
   },
   {
-    title: "Design para Redes Sociais",
+    title: "Integração de \nTestes Unitários",
     description:
-      "Artes para posts, stories e campanhas com identidade marcante.",
-    icon: socialMedia,
+      "Implementação de testes com Jest garantindo a confiabilidade e estabilidade do código",
+    icon: tests,
   },
   {
-    title: "Criação de Conteúdo",
+    title: "Integração com APIs e Microsserviços",
     description:
-      "Textos publicitários e institucionais pensados para fortalecer sua comunicação.",
-    icon: contentCreator,
+      "Conexão entre sistemas via APIs RESTful, com autenticação segura e lógica personalizada",
+    icon: api,
   },
   {
-    title: "Hospedagem e Domínio",
+    title: "Deploy com Docker e Nuvem",
     description:
-      "Cuidamos da configuração completa: domínio, servidor e publicação.",
-    icon: server,
+      "Empacotamento da aplicação em containers e publicação em serviços como AWS, Railway ou Vercel",
+    icon: cloud,
   },
 ];
 
@@ -122,7 +123,7 @@ export default function Services() {
         ref={sectionRef}
       >
         <div className={styles.container}>
-          <h2 className={styles.title}>Serviços</h2>
+          <h2 className={styles.title}>Capacidades Técnicas</h2>
           <div className={styles.grid}>
             {services.map((service, index) => (
               <div

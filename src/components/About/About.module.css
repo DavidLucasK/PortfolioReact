@@ -6,7 +6,7 @@
   background-color: #fff;
   box-shadow: 0 0 15px 15px #00000034;
   color: #000;
-  padding: 6rem 5% 1rem;
+  padding: 4rem 5% 1rem;
   display: flex;
   justify-content: center;
 
@@ -17,7 +17,7 @@
 }
 
 .contentWrapper {
-  max-width: 60vw;
+  margin: 5rem 0;
 }
 
 .desktopLayout {
@@ -29,6 +29,13 @@
 
 .leftContent {
   max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.textBlock {
+  max-width: 800px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -58,10 +65,22 @@
   box-shadow: 0 0 20px rgba(163, 53, 255, 0.2);
 }
 
+.profilePhotoContainerMobile {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(145deg, #4294ff 0%, #a435ff 100%);
+  padding: 4px;
+  box-shadow: 0 0 20px rgba(163, 53, 255, 0.2);
+}
+
 .profilePhoto {
   border-radius: 50%;
   object-fit: cover;
   transition: opacity 0.4s ease;
+  cursor: pointer;
 }
 
 .photoPrimary {
@@ -69,7 +88,7 @@
   inset: 0;
   z-index: 1;
   opacity: 1;
-  transform: translateY(10px);
+  transform: translateY(15px);
   transition: opacity 0.7s ease-in-out;
 }
 
@@ -78,7 +97,8 @@
   inset: 0;
   z-index: 2;
   opacity: 0;
-  transform: translateY(10px);
+  margin-top: 1.5rem;
+  transform: scale(0.9) translateY(10px);
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
@@ -91,15 +111,41 @@
 .profilePhotoContainer:hover .photoHover {
   opacity: 1;
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-  transform: translateY(0px);
+  transform: scale(0.9) translateY(0px);
+}
+
+.photoPrimaryMobile {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.7s ease-in-out;
+  animation: showHidePrimary 10s infinite ease-in-out;
+}
+
+.photoHoverMobile {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0;
+  margin-top: 0.8rem;
+  transform: scale(0.9) translateY(0px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  animation: showHideHover 10s infinite ease-in-out;
+}
+
+.gradientText {
+  background: linear-gradient(145deg, #4294ff, #a435ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .title {
   text-align: center;
   position: relative;
   font-size: clamp(2rem, 4vw, 2.3rem);
-  font-weight: 600;
-  margin-bottom: 1rem;
+  font-weight: 700;
   color: #000;
   margin-bottom: 5rem;
 }
@@ -146,6 +192,15 @@
   margin: 0 0 1rem;
 }
 
+@media screen and (max-width: 1500px) {
+  .aboutSection {
+    background-image: none;
+    background-repeat: none;
+    background-position: none;
+    background-size: none;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .aboutSection {
     padding: 4rem 1.5rem;
@@ -165,10 +220,21 @@
   }
 }
 
-@keyframes expandUnderline {
-  to {
-    width: 100%;
-    opacity: 1;
+@media screen and (max-width: 480px) {
+  .aboutSection {
+    padding: 0 3rem;
+  }
+
+  .contentWrapper {
+    margin: 3rem 0;
+  }
+
+  .imageWrapper {
+    margin-bottom: 3rem;
+  }
+
+  .title {
+    margin-bottom: 2rem;
   }
 }
 
@@ -187,5 +253,42 @@
 
   .paragraph {
     color: #fff;
+  }
+}
+
+@keyframes expandUnderline {
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes showHidePrimary {
+  0%,
+  10% {
+    opacity: 0;
+  }
+  20%,
+  60% {
+    opacity: 1;
+  }
+  70%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes showHideHover {
+  0%,
+  10% {
+    opacity: 1;
+  }
+  20%,
+  60% {
+    opacity: 0;
+  }
+  70%,
+  100% {
+    opacity: 1;
   }
 }

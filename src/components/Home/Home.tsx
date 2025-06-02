@@ -30,7 +30,7 @@ export default function Home() {
         ScrollTrigger.create({
           trigger: containerRef.current,
           start: "top top",
-          end: "bottom+=100% top",
+          end: "bottom+=80% top",
           scrub: true,
           pin: true,
           anticipatePin: 1,

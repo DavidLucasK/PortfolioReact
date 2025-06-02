@@ -2,10 +2,8 @@
 
 import styles from "./NavItem.module.css";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 
 export interface NavItemInterface {
-  url: string;
   label: string;
   isActive?: boolean;
   openMenu?: boolean;
@@ -14,7 +12,6 @@ export interface NavItemInterface {
 
 export default function NavItem(props: NavItemInterface) {
   const [scrolled, setScrolled] = useState(false);
-  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,16 +28,10 @@ export default function NavItem(props: NavItemInterface) {
 
     // Fecha o menu
     props.onClick?.();
-
-    // Pequeno delay para garantir o re-render antes da navegação
-    setTimeout(() => {
-      router.push(props.url);
-    }, 50);
   };
 
   return (
     <a
-      href={props.url}
       onClick={handleClick}
       className={`${styles.navItem} 
         ${scrolled ? styles.navItemScrolled : ""} 

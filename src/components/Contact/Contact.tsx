@@ -128,7 +128,7 @@ export default function Contact() {
             </ul>
             <p className={styles.cta}>
               Estou sempre aberto a novas oportunidades.
-              <br /> Se tiver alguma dúvida ou quiser trocar uma ideia, <br />
+              <br /> Se quiser contratar um serviço ou tiver alguma dúvida,
               entre em contato.
             </p>
           </div>

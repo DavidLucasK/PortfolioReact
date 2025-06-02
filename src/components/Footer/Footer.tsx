@@ -2,7 +2,7 @@
 
 import styles from "./Footer.module.css";
 import Image from "next/image";
-import logoDl from "@/app/Logo.webp";
+import logoDl from "../../../public/assets/Logo.webp";
 import { useEffect, useState } from "react";
 
 export default function Footer() {

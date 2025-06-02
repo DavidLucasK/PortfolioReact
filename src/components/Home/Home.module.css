@@ -87,12 +87,12 @@
   transition: opacity 0.3s ease-in-out;
 }
 
-.botaoRequest.contato:hover p {
-  color: #fff;
-}
-
 .botaoRequest.contato p {
   color: #111;
+}
+
+.botaoRequest.contato:hover p {
+  color: #fff;
 }
 
 .botaoRequest {
@@ -252,11 +252,19 @@
     transition: opacity 0.3s ease-in-out;
   }
 
+  .botaoRequest.contato p::after {
+    background-color: #111;
+  }
+
   .botaoRequest.contato:hover p {
     color: #111;
   }
 
   .botaoRequest.contato p {
+    color: #fff;
+  }
+
+  .scrollDown {
     color: #fff;
   }
 }

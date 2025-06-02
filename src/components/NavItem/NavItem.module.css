@@ -18,7 +18,8 @@
 
   &:hover,
   &.active {
-    color: #000; /* mantém o texto branco */
+    color: #000;
+    cursor: pointer;
   }
 
   &:hover::after,
@@ -26,6 +27,10 @@
     width: 100%;
     left: 0;
   }
+}
+
+.navItem.open {
+  color: #111;
 }
 
 /* Quando a navbar estiver com a classe scrolled */
@@ -51,7 +56,7 @@
   }
 
   &.open {
-    color: black;
+    color: #fff;
   }
 }
 
@@ -81,7 +86,11 @@
     }
 
     &.open {
-      color: white;
+      color: #fff;
     }
+  }
+
+  .navItem.open {
+    color: #fff;
   }
 }

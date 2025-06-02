@@ -3,44 +3,63 @@
 
 import styles from "./Compliance.module.css";
 import Image from "next/image";
-import chart from "../../../public/next.svg";
-import support from "../../../public/next.svg";
-import art from "../../../public/next.svg";
-import fast from "../../../public/next.svg";
+import time from "../../../public/assets/time.gif";
+import teamwork from "../../../public/assets/teamwork.gif";
+import adapt from "../../../public/assets/adapt.gif";
+import conversation from "../../../public/assets/conversation.gif";
+import creative from "../../../public/assets/creative.gif";
+import shield from "../../../public/assets/shield.gif";
+import { FaArrowRotateRight } from "react-icons/fa6";
 
 export default function Compliance() {
   const items = [
     {
-      icon: support,
-      title: "Suporte",
-      bold: "Exclusivo",
-      alt: "a",
+      icon: conversation,
+      title: "Comunicação",
+      bold: "Efetiva",
+      alt: "ícone de balão de fala",
       description:
-        "Nossa equipe está sempre pronta para te ajudar! Fale conosco e surpreenda-se com o nosso atendimento.",
+        "Sou uma pessoa comunicativa e transparente, sempre busco facilitar a compreensão e colaboração de todos.",
     },
     {
-      icon: chart,
-      title: "Foco em",
-      bold: "Resultados",
-      alt: "a",
+      icon: teamwork,
+      title: "Trabalho em",
+      bold: "Equipe",
+      alt: "ícone de gráfico de crescimento",
       description:
-        "Nossas decisões criativas têm foco em gerar valor real, seja em conversão, presença digital ou reconhecimento.",
+        "Gosto de trabalhar em equipe, principalmente quando o compartilhamento de idéias para alcançar metas e resultados é incentivado.",
     },
     {
-      icon: art,
-      title: "Participe da",
-      bold: "Criação",
-      alt: "a",
+      icon: adapt,
+      title: "Alta",
+      bold: "Adaptabilidade",
+      alt: "ícone de camaleão",
       description:
-        "Você faz parte do processo criativo. Acompanhe, dê idéias para que a nossa equipe transforme as suas idéias em realidade.",
+        "Encaro mudanças com bastante flexibilidade e acredito que me adapto rápido a novas situações para sempre manter a produtividade e o desempenho.",
     },
     {
-      icon: fast,
-      title: "Entrega",
-      bold: "Rápida",
-      alt: "a",
+      icon: creative,
+      title: "Mente",
+      bold: "Criativa",
+      alt: "ícone de cérebro e lâmpada",
       description:
-        "Trabalhamos com comprometimento e eficiência para entregar seu projeto dentro do prazo combinado.",
+        "Uso minha criatividade para desafiar o óbvio e o convencional, encontrando soluções eficazes e inovadoras.",
+    },
+    {
+      icon: shield,
+      title: "Resiliência",
+      bold: "Profissional",
+      alt: "ícone de escudo",
+      description:
+        "Já enfrentei diversos bugs ao longo do caminho. E mesmo assim o objetivo sempre é adaptar a rota e entregar com qualidade.",
+    },
+    {
+      icon: time,
+      title: "Gestão do",
+      bold: "Tempo",
+      alt: "ícone de relógio",
+      description:
+        "Planejo meu tempo de forma consciente, com foco em prazos e entregas, equilibrando sempre a produtividade com organização.",
     },
   ];
 
@@ -56,16 +75,17 @@ export default function Compliance() {
           <div key={index} className={styles.card}>
             <div className={styles.front}>
               <Image
-                className={styles.test}
+                className={item.icon === shield ? undefined : styles.test}
                 src={item.icon}
                 alt={item.alt}
-                width={50}
-                height={50}
+                width={62}
+                height={62}
               />
               <p className={styles.text}>{item.title}</p>
               <p className={styles.text}>
                 <strong>{item.bold}</strong>
               </p>
+              <FaArrowRotateRight size={24} className={styles.flipHintIcon} />
             </div>
             <div className={styles.back}>
               <p>{item.description}</p>

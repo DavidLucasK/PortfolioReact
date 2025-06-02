@@ -106,6 +106,7 @@
   font-size: clamp(0.6rem, 1vw, 1rem);
   text-align: center;
   white-space: nowrap;
+  font-family: "Poppins";
 }
 
 .botaoRequest p::after {
@@ -165,28 +166,25 @@
 
   .bagulhos {
     display: none;
+  }
 
-    &.open {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      top: 6rem;
-      left: 50%;
-      transform: translateX(-50%); /* Centraliza horizontalmente */
-      width: 100%;
-      border-top: 1px solid rgba(0, 0, 0, 0.062);
-      min-width: 490px;
-      max-width: 768px; /* Evita que fique muito largo */
-      background: rgb(255, 255, 255, 0.8);
-      padding: 20px;
-      align-items: center; /* Alinha os itens ao centro */
-      text-align: center;
-      border-bottom-left-radius: 20px;
-      border-bottom-right-radius: 20px;
-      box-shadow: 0px 20px 15px 5px rgba(0, 0, 0, 0.46);
-      backdrop-filter: blur(15px); /* Aplica o desfoque */
-      -webkit-backdrop-filter: blur(15px);
-    }
+  .bagulhos.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 6rem;
+    left: 0;
+    width: 100vw; /* 100% da largura da viewport */
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0px 20px 15px 5px rgba(0, 0, 0, 0.46);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    font-family: "Poppins";
   }
 
   .btnDefault {
@@ -220,6 +218,55 @@
     width: 8rem;
     height: 2.5rem;
     font-size: 0.8rem;
+  }
+
+  .bagulhos {
+    display: none;
+    margin: 0;
+  }
+
+  .bagulhos.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 6rem;
+    left: 0;
+    width: 100vw;
+    background: #fff;
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0px 20px 15px 5px rgba(0, 0, 0, 0.46);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(15px);
+  }
+
+  .bagulhos.open.scrolled {
+    background: rgba(70, 70, 70, 0.55);
+    border-top: 1px solid #aaa;
+  }
+
+  .bagulhos.open li {
+    color: #fff;
+  }
+
+  .bagulhos.open li {
+    color: #fff;
+  }
+}
+
+@media screen and (max-width: 480px) and (prefers-color-scheme: dark) {
+  .bagulhos.open {
+    background: rgba(10, 10, 10, 0.85);
+    border-top: 1px solid #1a1a1a;
+  }
+
+  .bagulhos.open.scrolled {
+    background: rgba(10, 10, 10, 0.85);
+    border-top: 1px solid #1a1a1a;
   }
 }
 

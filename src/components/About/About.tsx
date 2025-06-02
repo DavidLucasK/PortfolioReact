@@ -5,8 +5,8 @@ import styles from "./About.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import profilePhoto from "@/app/assets/euReal.webp";
-import profilePhoto2 from "@/app/assets/avatar braço cruzado com LOGO NO BG.png";
+import profilePhoto from "../../../public/assets/euReal.png";
+import profilePhoto2 from "../../../public/assets/avatar braço cruzado com LOGO NO BG.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -43,19 +43,31 @@ export default function About() {
   return (
     <section className={styles.aboutSection} id="about" ref={containerRef}>
       <div className={styles.contentWrapper}>
-        <h2 className={styles.title}>Sobre</h2>
+        <h2 className={styles.title}>
+          Quem <span className={styles.gradientText}>Sou? </span>
+        </h2>
 
         {isMobile ? (
           <div className={styles.contentTextImg}>
+            <div className={styles.rightContent}>
+              <div className={styles.imageWrapper}>
+                <div className={styles.profilePhotoContainerMobile}>
+                  <Image
+                    src={profilePhoto2}
+                    alt="Foto 1"
+                    fill
+                    className={`${styles.profilePhoto} ${styles.photoPrimaryMobile}`}
+                  />
+                  <Image
+                    src={profilePhoto}
+                    alt="Foto 2"
+                    fill
+                    className={`${styles.profilePhoto} ${styles.photoHoverMobile}`}
+                  />
+                </div>
+              </div>
+            </div>
             <div className={styles.leftContent}>
-              <p className={styles.paragraph}>
-                Este site <strong>não</strong> foi gerado por IA nem copiado de
-                lugar nenhum. Cada linha de código, cada detalhe visual e
-                funcional foi pensado e desenvolvido por mim, do zero.{" "}
-                <strong>
-                  Agora que você já sabe disso, vamos ao que interessa.
-                </strong>
-              </p>
               <p className={styles.paragraph}>
                 Sou um <strong>desenvolvedor web</strong> dedicado, com{" "}
                 <strong>+ 5 anos</strong> de experiência na criação de sites e
@@ -76,23 +88,12 @@ export default function About() {
                 tecnologia para transformar ideias em realidade.
               </p>
             </div>
-            <div className={styles.imageWrapperMobile}>
-              <div className={styles.profilePhoto}></div>
-            </div>
           </div>
         ) : (
           <div className={styles.desktopLayout}>
             <div className={styles.textBlock}>
               <p className={styles.paragraph}>
-                Este site <strong>não</strong> foi gerado por IA nem copiado de
-                lugar nenhum. Cada linha de código, cada detalhe visual e
-                funcional foi pensado e desenvolvido por mim, do zero.{" "}
-                <strong>
-                  Agora que você já sabe disso, vamos ao que interessa.
-                </strong>
-              </p>
-              <p className={styles.paragraph}>
-                Sou um <strong>desenvolvedor web</strong> dedicado, com{" "}
+                Sou um <strong>Desenvolvedor Web</strong> dedicado, com{" "}
                 <strong>+ 5 anos</strong> de experiência na criação de sites e
                 aplicações modernas e responsivas. Gosto de desmitificar
                 problemas em soluções simples, bonitas e intuitivas. Quando não
@@ -110,21 +111,21 @@ export default function About() {
                 Me considero uma pessoa <strong>criativa</strong>, tanto no
                 trabalho quanto no dia a dia. Gosto de explorar caminhos
                 alternativos, buscar soluções na internet e pensar fora da
-                caixa. No fim das contas, meu objetivo sempre foi esse: unir
-                criatividade e tecnologia com autenticidade.
+                caixa. No fim das contas, meu objetivo sempre é: <br />
+                <strong>Trazer novas idéias a realidade.</strong>
               </p>
             </div>
             <div className={styles.rightContent}>
               <div className={styles.imageWrapper}>
                 <div className={styles.profilePhotoContainer}>
                   <Image
-                    src={profilePhoto}
+                    src={profilePhoto2}
                     alt="Foto 1"
                     fill
                     className={`${styles.profilePhoto} ${styles.photoPrimary}`}
                   />
                   <Image
-                    src={profilePhoto2}
+                    src={profilePhoto}
                     alt="Foto 2"
                     fill
                     className={`${styles.profilePhoto} ${styles.photoHover}`}

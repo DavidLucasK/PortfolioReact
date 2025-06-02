@@ -3,11 +3,16 @@
 import Image from "next/image";
 import styles from "./NavbarStyle.module.css";
 import { useState, useEffect } from "react";
-import logo from "@/app/Logo.webp";
-import Link from "next/link";
-import NavItem, { NavItemInterface } from "../NavItem/NavItem";
+import logo from "../../../public/assets/Logo.webp";
 import { usePathname } from "next/navigation";
 import { FaBars, FaXmark } from "react-icons/fa6";
+import Link from "next/link";
+import NavItem from "../NavItem/NavItem";
+
+interface NavItemInterface {
+  url: string;
+  label: string;
+}
 
 interface NavbarProps {
   onNavigate: (page: string) => void;
@@ -16,14 +21,16 @@ interface NavbarProps {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function Navbar({ onNavigate }: NavbarProps) {
   const items: NavItemInterface[] = [
-    //TODO:
-    //Change all the url's to the right ones once they're finished
     {
       url: "#about",
       label: "Sobre Mim",
     },
     {
-      url: "#services",
+      url: "#projects",
+      label: "Projetos",
+    },
+    {
+      url: "#techs",
       label: "Habilidades",
     },
     {
@@ -33,23 +40,74 @@ export default function Navbar({ onNavigate }: NavbarProps) {
   ];
 
   const pathName = usePathname();
-
   const [scrolled, setScrolled] = useState(false);
+  const [openMenu, setOpenMenu] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 480);
+    };
+
+    checkIsMobile();
+    window.addEventListener("resize", checkIsMobile);
+
+    return () => window.removeEventListener("resize", checkIsMobile);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 0);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const [openMenu, setOpenMenu] = useState<boolean>(false);
+  const defaultOffsets: Record<string, number> = {
+    "#projects": -90,
+    "#techs": 0,
+    "#contact": -80,
+  };
+
+  const scrollToSection = (hash: string) => {
+    const target = document.querySelector(hash);
+    if (!target) return;
+
+    const currentScroll = window.scrollY || window.pageYOffset;
+    let offset = defaultOffsets[hash] ?? -100;
+
+    if (isMobile) {
+      if (hash === "#services") {
+        const servicesTop = target.getBoundingClientRect().top + currentScroll;
+        offset = currentScroll < servicesTop ? -80 : -80;
+      }
+
+      if (hash === "#about") {
+        const aboutTop = target.getBoundingClientRect().top + currentScroll;
+        offset = currentScroll < aboutTop ? -80 : -80;
+      }
+    } else {
+      if (hash === "#services") {
+        const servicesTop = target.getBoundingClientRect().top + currentScroll;
+        offset = currentScroll < servicesTop ? 1500 : 0;
+      }
+
+      if (hash === "#about") {
+        const aboutTop = target.getBoundingClientRect().top + currentScroll;
+        offset = currentScroll < aboutTop ? 0 : -1910;
+      }
+    }
+    const finalPosition =
+      target.getBoundingClientRect().top + currentScroll + offset;
+
+    setTimeout(() => {
+      window.scrollTo({
+        top: finalPosition,
+        behavior: "smooth",
+      });
+    }, 50); // pequena correção se necessário
+  };
 
   return (
     <nav className={`${styles.container} ${scrolled ? styles.scrolled : ""}`}>
@@ -60,25 +118,37 @@ export default function Navbar({ onNavigate }: NavbarProps) {
           alt="Logo"
         />
       </Link>
-      <ul className={`${styles.bagulhos} ${openMenu ? styles.open : ""}`}>
+
+      <ul
+        className={`${styles.bagulhos} ${openMenu ? styles.open : ""} ${
+          scrolled ? styles.scrolled : ""
+        }`}
+      >
         {items.map((item, index) => (
           <li
             key={index}
             className={pathName === item.url ? styles.active : ""}
           >
             <NavItem
-              url={item.url}
               label={item.label}
               isActive={pathName === item.url}
-              openMenu={openMenu ? true : false}
-              onClick={() => setOpenMenu(false)}
+              openMenu={openMenu}
+              onClick={() => {
+                scrollToSection(item.url);
+                setOpenMenu(false);
+              }}
             />
           </li>
         ))}
       </ul>
-      <Link href="#projects" className={styles.botaoRequest}>
-        <p>Meus Projetos</p>
-      </Link>
+
+      <button
+        onClick={() => scrollToSection("#services")}
+        className={styles.botaoRequest}
+      >
+        <p>Minhas Capacidades</p>
+      </button>
+
       <button
         className={`${styles.btnMobile} ${scrolled ? styles.scrolled : ""}`}
         onClick={() => setOpenMenu(!openMenu)}
