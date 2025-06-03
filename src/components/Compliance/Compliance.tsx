@@ -80,6 +80,7 @@ export default function Compliance() {
                 alt={item.alt}
                 width={62}
                 height={62}
+                unoptimized
               />
               <p className={styles.text}>{item.title}</p>
               <p className={styles.text}>

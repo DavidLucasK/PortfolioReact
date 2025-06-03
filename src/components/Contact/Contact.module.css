@@ -77,6 +77,10 @@
   transition: outline 0.1s ease-in-out;
 }
 
+.form textarea {
+  resize: vertical;
+}
+
 .form input:focus,
 .form textarea:focus {
   outline: 2px solid #a435ff;
