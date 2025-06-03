@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import profilePhoto from "../../../public/assets/euReal.png";
 // import profilePhoto2 from "../../../public/assets/avatar braço cruzado com LOGO NO BG.png";
-import profilePhoto2 from "../../../public/assets/avatarNewBestOneLOGONOBGBETTER2.png";
+import profilePhoto2 from "../../../public/assets/avatarNew.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
