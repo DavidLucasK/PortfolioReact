@@ -81,7 +81,7 @@ export default function Services() {
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top top",
+        start: "top-=50 top",
         end: `+=${totalScroll}`,
         pin: true,
         scrub: true,
