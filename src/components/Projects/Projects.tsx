@@ -26,7 +26,7 @@ const projects = [
     description: `App web que fiz para minha namorada poder brincar e ser algo divertido entre a gente.<br><strong>* Também fiz um app mobile em React Native que usa a mesma base de dados.</strong>`,
     image: mockupLoveYou,
     tag: "App Pessoal",
-    link: "https://loveuportfolio.vercel.app/",
+    link: "",
   },
   {
     title: "TrêsOuMais",
